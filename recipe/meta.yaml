@@ -12,7 +12,7 @@ source:
 build:
   script: {{ PYTHON }} -m pip install . --no-deps -vv --ignore-installed --no-cache-dir
   osx_is_app: true
-  number: 2
+  number: 3
   skip: true  # [py<35]
   entry_points:
     - sharppy = runsharp.full_gui:main
@@ -21,6 +21,7 @@ requirements:
   build:
     - python >=3.6
     - {{ compiler('c') }}  # [linux]
+    - {{ stdlib("c") }}    # [linux]
     - {{ compiler('cxx') }}  # [linux]
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
     - {{ cdt('mesa-dri-drivers') }}  # [linux]
